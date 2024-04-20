@@ -1,0 +1,11 @@
+.btnHover:hover span{
+  display: flex;
+}
+
+.titleBar > .title, .MainScreen < .topBar{
+  -webkit-app-region: drag;
+}
+
+.MainScreen > .topBar{
+  -webkit-user-select: none;
+}

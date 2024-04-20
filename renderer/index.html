@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="script-src 'self' 'unsafe-inline'"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/tailwindcss.css" />
+    <link rel="stylesheet" href="css/bootstrap-icons/bootstrap-icons.css">
+    <title>Works</title>
+  </head>
+  <body class="h-screen overflow-hidden">
+    <div class="topBar h-[10%] w-full flex flex-row items-center fixed top-0 left-0" style="-webkit-user-select: none;">
+        <div class="card shadow-md flex-row titleBar w-[12%] h-[70%] flex justify-center items-center mx-[1%]" style="-webkit-app-region: drag;">
+          <h1 class="text-xl font-semibold">Works Office</h1>
+        </div>
+        <div class="tabBar card shadow-md flex-row w-[75%] h-[70%] px-5 flex items-center mx-[2%]">
+          <div class="mr-3 h-[100%] flex items-center">
+              <div class="card w-[120px] h-[80%] flex flex-row items-center justify-center shadow-md rounded-lg bg-base-600 mr-3">
+                <i class="bi bi-house ml-2"></i>
+                <h2 class="text-md font-semibold mx-1">Home</h2>
+                <i class="bi bi-x-lg"></i>
+              </div>
+          </div>
+          <button class="btn btn-sm btn-circle shadow-md">
+            <i class="bi bi-plus"></i>
+          </button>
+          <div class="ml-auto w-[15%] flex flex-row">
+            <div class="flex-0">
+              <div
+                title="helloworld@gmail.com"
+                class="dropdown dropdown-end hidden [@supports(color:oklch(0_0_0))]:block"
+              >
+                <div tabindex="0" role="button" class="btn btn-ghost hover:bg-purple-300 rounded-full w-[40px] h-[40px] flex items-center justify-center mx-2 focus:outline-none focus:ring-2
+              focus:ring-purple-500 focus:ring-offset-2">
+                  <span class="hidden font-normal md:inline">
+                    <i class="bi bi-person text-2xl"></i>
+                  </span>
+                </div>
+                <div
+                  tabindex="0"
+                  class="dropdown-content bg-base-200 text-base-content rounded-box top-px h-[28.6rem] max-h-[calc(100vh-10rem)] w-75 overflow-y-auto border border-white/5 shadow-2xl outline outline-1 outline-black/5 mt-16 flex justify-center"
+                >
+                  <div className="avatar">
+                      <div className="w-24 rounded-full">
+                        <img src="/home/oem/Desktop/sammike/img/sammike.jpg" class="w-12 rounded-full"/>
+                      </div>
+                  </div>
+                  <label class="text-xl">Hello World</label>
+  
+                  <div class="mt-4">
+                    Hello
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button title="Settings" class="btn btn-ghost btn-circle hover:bg-blue-300 w-[40px] h-[40px] flex items-center justify-center mx-2 focus:outline-none focus:ring-2
+          focus:ring-blue-500 focus:ring-offset-2" onclick="handleSettingsDrawer()">
+              <span class="hidden font-normal md:inline">
+                <i class="bi bi-gear text-2xl"></i>
+              </span>
+            </button>
+
+            <button title="Notifications" class="btn btn-ghost btn-circle hover:bg-green-300 flex items-center justify-center mx-2 focus:outline-none focus:ring-2
+          focus:ring-green-500 focus:ring-offset-2" onclick="handleNotificationDrawer()">
+              <span class="font-normal md w-full:inline">
+                <i class="bi bi-bell text-2xl"></i>
+              </span>
+            </button>
+
+          </div>
+        </div>
+        <div class="card shadow-md flex-row titleBarBtns w-[10%] h-[70%] flex justify-center items-center ml-auto mr-1">
+          <button class="w-[33.33%] h-[50%] btn btn-ghost rounded-none" id="minimizeBtn" title="Minimize">-</button>
+          <button class="w-[33.33%] h-[50%] btn btn-ghost rounded-none" id="maximizeRestoreBtn" title="Maximize">M</button>
+          <button class="w-[33.33%] h-[50%] btn btn-ghost rounded-none" id="closeBtn" title="Close">X</button>
+        </div>
+      </div>
+    </div>
+    <!--  Main Screen -->
+    <div class="w-full h-[86%] overflow-hidden flex flex-col mt-[4%] MainScreen">
+      
+    </div>
+
+    <script src="js/renderer.js" defer></script>
+    <!--<script type="text/javascript" src="js/bootstrap.js" defer></script>-->
+    
+  </body>
+</html>

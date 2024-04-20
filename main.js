@@ -15,9 +15,32 @@ const isDev = process.env.NODE_ENV !== "development";
 //const isDev = process.env.NODE_ENV !== 'production';
 const isMac = process.platform === "darwin";
 
+let splashWindow;
 let mainWindow;
 let aboutWindow;
 
+//Splash Window
+function createSplashWindow(){
+  splashWindow = new BrowserWindow({
+    width: 700,
+    height: 500,
+    icon: `${__dirname}/assets/icons/Icon_256x256.png`,
+    frame: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: true,
+      devTools: false,
+      preload:path.join(__dirname,"preload.js")
+    }
+  });
+
+  ipcMain.on('splashtimeout', () => {
+    createMainWindow()
+  })
+
+  // splashWindow.loadURL(`file://${__dirname}/renderer/splashscreen.html`);
+  splashWindow.loadFile(path.join(__dirname, "./renderer/splashscreen.html"));
+}
 // Main Window
 function createMainWindow() {
   mainWindow = new BrowserWindow({
@@ -96,13 +119,14 @@ function createAboutWindow() {
 
 // When the app is ready, create the window
 app.on("ready", () => {
-  createMainWindow();
+  createSplashWindow();
 
   const mainMenu = Menu.buildFromTemplate(menu);
   Menu.setApplicationMenu(mainMenu);
 
   // Remove variable from memory
-  mainWindow.on("closed", () => (mainWindow = null));
+  splashWindow.on("closed", () => (splashWindow = null));
+  //mainWindow.on("closed", () => (mainWindow = null));
 });
 
 // Menu template
@@ -174,5 +198,5 @@ app.on("window-all-closed", () => {
 
 // Open a window if none are open (macOS)
 app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
+  if (BrowserWindow.getAllWindows().length === 0) createSplashWindow();
 });

@@ -6,7 +6,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "TWcss": "npx tailwindcss -i ./renderer/css/input.css -o ./renderer/css/tailwindcss.css --watch"
+    "render": "npx tailwindcss -i ./renderer/css/input.css -o ./renderer/css/tailwindcss.css --watch"
   },
   "author": "Egesa Raymond",
   "license": "MIT",
