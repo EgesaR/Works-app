@@ -2,7 +2,6 @@
 const os = require('os');
 const path = require('path');
 const { contextBridge, ipcRenderer } = require('electron');
-
 //Resource Imports
 const Toastify = require('toastify-js');
 

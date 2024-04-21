@@ -4,26 +4,95 @@ const maximizeRestoreBtn = document.getElementById('maximizeRestoreBtn')
 const closeBtn = document.getElementById('closeBtn')
 const MainScreen = document.querySelector('.MainScreen')
 
+/*
 const message = document.getElementById("message")
 const millsecs = 100
 
-const timer = setInterval(() => {
-  setInterval(() => {
-    setInterval(() => {
-      setInterval(() => {
-        message.innerHTML = "Done."
-        //ipc.send('splashtimeout')
-        clearInterval(timer);
-      }, millsecs * 100);
-      message.innerHTML = "Loading resources..."
-      clearInterval(timer);
-    }, millsecs * 90);
-    message.innerHTML = "Getting resources..."
-    clearInterval(timer);
-  }, millsecs * 90);
+const timer = setInterval(setSplashScreenMessage, millsecs * 30);
+
+function setSplashScreenMessage() {
   message.innerHTML = "Starting Process..."
-  clearInterval(timer);
-}, millsecs * 70);
+  let timer1 = setInterval(() => {
+    if (message.innerHTML === "Starting Process...") { 
+      clearInterval(timer)
+      message.innerHTML = "Getting things ready..."
+      let timer1 = setInterval(() => {
+        if (message.innerHTML === "Getting things ready...") { 
+          clearInterval(timer)
+          message.innerHTML = "Getting things ready... 0%"
+          let timer1 = setInterval(() => {
+            if (message.innerHTML === "Getting things ready... 0%") { 
+              clearInterval(timer)
+              message.innerHTML = "Getting things ready... 10%"
+              let timer1 = setInterval(() => {
+                if (message.innerHTML === "Getting things ready... 10%") { 
+                  clearInterval(timer)
+                  message.innerHTML = "Getting things ready... 20%"
+                  let timer1 = setInterval(() => {
+                    if (message.innerHTML === "Getting things ready... 20%") { 
+                      clearInterval(timer)
+                      message.innerHTML = "Getting things ready... 30%"
+                      let timer1 = setInterval(() => {
+                        if (message.innerHTML === "Getting things ready... 30%") { 
+                          clearInterval(timer)
+                          message.innerHTML = "Getting things ready... 40%"
+                          let timer1 = setInterval(() => {
+                            if (message.innerHTML === "Getting things ready... 40%") { 
+                              clearInterval(timer)
+                              message.innerHTML = "Getting things ready... 50%"
+                              let timer1 = setInterval(() => {
+                                if (message.innerHTML === "Getting things ready... 50%") { 
+                                  clearInterval(timer)
+                                  message.innerHTML = "Getting things ready... 60%"
+                                  let timer1 = setInterval(() => {
+                                    if (message.innerHTML === "Getting things ready... 60%") { 
+                                      clearInterval(timer)
+                                      message.innerHTML = "Getting things ready... 70%"
+                                      let timer1 = setInterval(() => {
+                                        if (message.innerHTML === "Getting things ready... 70%") { 
+                                          clearInterval(timer)
+                                          message.innerHTML = "Getting things ready... 80%"
+                                          let timer1 = setInterval(() => {
+                                            if (message.innerHTML === "Getting things ready... 80%") { 
+                                              clearInterval(timer)
+                                              message.innerHTML = "Getting things ready... 90%"
+                                              let timer1 = setInterval(() => {
+                                                if (message.innerHTML === "Getting things ready... 90%") { 
+                                                  clearInterval(timer)
+                                                  message.innerHTML = "Getting things ready... 100%"
+                                                  let timer1 = setInterval(() => {
+                                                    if (message.innerHTML === "Getting things ready... 100%") { 
+                                                      clearInterval(timer)
+                                                      message.innerHTML = "Done ."
+                                                      ipc.send('splashtimeout')
+                                                      window.close()
+                                                    }
+                                                  }, millsecs * 25);
+                                                }
+                                              }, millsecs * 25);
+                                            }
+                                          }, millsecs * 25);
+                                        }
+                                      }, millsecs * 25);    
+                                    }
+                                  }, millsecs * 25);
+                                }
+                              }, millsecs * 25);
+                            }
+                          }, millsecs * 25);
+                        }
+                      }, millsecs * 25);
+                    }
+                  }, millsecs * 25);
+                }
+              }, millsecs * 25);
+            }
+          }, millsecs * 50);
+        }
+      }, millsecs * 50);
+    }
+  }, millsecs * 50);
+}*/
 
 //Minimize App
 minimizeBtn.addEventListener('click', () => ipc.send('minimizeApp'))
@@ -47,19 +116,31 @@ maximizeRestoreBtn.addEventListener('click', () => ipc.send('maximizeRestoreApp'
 //Close App
 closeBtn.addEventListener('click', () => ipc.send('closeApp'))
 
+import { Modal } from 'flowbite'
+
+const $modalElement = document.querySelector('#modalEl');
+
+const modalOptions = {
+    placement: 'bottom-right',
+    backdrop: 'dynamic',
+    backdropClasses: 'bg-gray-900/50 dark:bg-gray-900/80 fixed inset-0 z-40',
+    onHide: () => {
+        console.log('modal is hidden');
+    },
+    onShow: () => {
+        console.log('modal is shown');
+    },
+    onToggle: () => {
+        console.log('modal has been toggled');
+    }
+}
+
+const modal = new Modal($modalElement, modalOptions);
+
+modal.show();
+
+
 document.querySelector('.MainScreen').innerHTML = Layout.layout({ content: App.layout })
-
-
-const handleNotificationDrawer = () => {
-  let notificationDrawer = document.getElementById('notificationDrawer')
-  notificationDrawer.classList.toggle('translate-x-[100%]')
-  notificationDrawer.classList.toggle('translate-x-0')
-}
-const handleSettingsDrawer = () => {
-  let settingsDrawer = document.getElementById('settingsDrawer')
-  settingsDrawer.classList.toggle('translate-x-[100%]')
-  settingsDrawer.classList.toggle('translate-x-0')
-}
 
 /*
 let letterHolder = document.querySelector('#letterHolder')

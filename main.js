@@ -119,14 +119,15 @@ function createAboutWindow() {
 
 // When the app is ready, create the window
 app.on("ready", () => {
-  createSplashWindow();
+  //createSplashWindow();
+  createMainWindow();
 
   const mainMenu = Menu.buildFromTemplate(menu);
   Menu.setApplicationMenu(mainMenu);
 
   // Remove variable from memory
-  splashWindow.on("closed", () => (splashWindow = null));
-  //mainWindow.on("closed", () => (mainWindow = null));
+  //splashWindow.on("closed", () => (splashWindow = null));
+  mainWindow.on("closed", () => (mainWindow = null));
 });
 
 // Menu template
@@ -198,5 +199,5 @@ app.on("window-all-closed", () => {
 
 // Open a window if none are open (macOS)
 app.on("activate", () => {
-  if (BrowserWindow.getAllWindows().length === 0) createSplashWindow();
+  if (BrowserWindow.getAllWindows().length === 0)createMainWindow();
 });
